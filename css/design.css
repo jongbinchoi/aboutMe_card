@@ -47,7 +47,7 @@
     width: 13rem;
     height: 17rem;
     border-radius: 0.5rem;
-    background-image: url("../img/");
+    background-image: url("../image/bm.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
@@ -66,7 +66,7 @@
     padding-top: 0.8rem;
 }
 .item_type {
-    color: black;
+    color: #92b6f7;
     font-weight: bold;
 }
 .design_bar {
@@ -75,7 +75,15 @@
     left: 0;
     width: 100%;
     height: 1rem;
-    background: black;
+    background: rgb(146, 182, 247);
+        background: linear-gradient(21deg, rgba(146, 182, 247, 1) 7%, rgba(64, 177, 153, 1) 80%);
+}
+
+
+.moveBox {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0)) rotateY(var(--ry, 0)) translateZ(var(--tz, -12px));
 }
 
 
@@ -134,7 +142,8 @@
 }
 .bar_fill {
     height: 2rem;
-    background: yellow;
+    background: rgb(146, 182, 247);
+        background: linear-gradient(21deg, rgba(146, 182, 247, 1) 0%, rgba(64, 177, 153, 1) 80%);
     padding: 0 1.5rem;
     text-align: center;
     line-height: 2rem;
@@ -148,16 +157,65 @@
     padding-left: 0.8rem;
 }
 
+body {
+    padding: 60px;
+    background: none;
+    min-height: 100vh;
+}
+
+  @keyframes sparkle {
+      from {
+          background-position: 0% 100%;
+      }
+
+      to {
+          background-position: 200% 200%;
+      }
+  }
+
+  :root {
+      --c1: rgba(146, 182, 247, 1);
+      --c2: rgba(64, 177, 153, 1);
+      --c3:rgba(102,139,208,1);
+  }
+
+  .test {
+      background: none;
+      display: inline-block;
+      padding: 1em;
+      font-family: Helvetica Neue;
+      border-radius: 4px;
+      position: relative;
+  }
+  .test:before {
+      animation: sparkle 4s infinite linear;
+      background: linear-gradient(90deg,
+              var(--c1) 0%,
+              var(--c2) 11%,
+              var(--c3) 22%,
+              var(--c1) 33%,
+              var(--c2) 44%,
+              var(--c3) 55%,
+              var(--c1) 66%,
+              var(--c2) 77%,
+              var(--c3) 88%,
+              var(--c1) 100%);
+      background-size: 300% 100%;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 96%;
+      border-radius: 4px;
+      filter: blur(10px);
+      z-index: -1;
+      transform: scale(0.99) translateY(3px);
+  }
 
 
 
-
-
-
-
-
-
-
+  
 
 
 
@@ -201,6 +259,6 @@
         align-items: center;
     }
 	.wrap {transform: rotate(90deg);}
-    .sns_box, .info_box {display: none;}
+    .sns_box, .info_box, .test {display: none;}
 	
 }
